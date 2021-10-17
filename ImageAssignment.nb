@@ -1,128 +1,53 @@
-img = \!\(\*
-GraphicsBox[
-TagBox[RasterBox[CompressedData["
-1:eJztmr2O3DYUhQdOk1Kly3WXMkCalJPSXWAjwJZrwxs7zRpYB7D9Fltmui39
-CC73AbZwOaVLP4LKcHSlM4f3h+TMSHZghKAFjVYkv0seXl5SfvT89ZM/H6xW
-qzc/psuTZ29/u75+9v5pl378cfXmr5dXly8eX/19+fLy+tfnP6SH6/Hf7v7/
-JGl7cbb55VtDHJsSfH93cRB/KiJ5KabmlLAT/KH8XOobDtwO42adMLquO7Ls
-zfora0+akwyAI/hXgwkQ0tImAFuYkY+Gl7ScCbafmVmuJ8KvJhXNa4JlRv3d
-lPjJ6fzS4lwmsLAV9sP1K8kwwfJj1JBb+LnOueAtdsTPtOOoDe5xl6fude1i
-/pRlFE4ZAgjSxVYm7JnvLmRSsEeFKtgijKk0ofhTTj9PdAhSQxke2LwMYWqn
-4v2UeCopNUb8Rw+B7fyzdzfIDL+XB+kETSfsVMNPHz6mG+WsGAzNMb8M2dEL
-ilRo4dkEET96XnlXN1sk9pzMf7SEqvDM38JsnVh5rE+UEPO78O38PEnVhOXm
-Ii9xhBdqgVcm3N/fY9Hhe0hCPVFIBf6UD50Ch/LvRnmYpJLEz6SsfIs1AVQz
-8sNFVOGZnwca5Onm7uezlOWJqyV5DfeN/KnOGTvfVSn4v/y+Ttcqv3I7Vf7I
-BJc/eW9cW/gZvswvpRblZ3iYIH8t8wu88CsPr4YgUo404erf5Y/Eb/uf66/y
-c0RhZ3GkfFTe7j+r4pEr18+t8PwFP3ueyBFJEdcE62yjzo/EI9kVD1950wEX
-inssr4XlzMILf6N4yvyReNREfjhFdNt8y7ml3UHkiCy85RfyaP4qfoaHCRY+
-MsEN2HhPVJAQ4K1yOLd3PvOnm6oJXZ5UK64Jws9dFInHNcHlZ+fmeiHFaRcF
-NQHb+aOwoZFf4LkgeyFpwlaurNjkJwl2g6AkJHUW3D5M6G/PlQmK3y0LeLda
-tkKtC3r/GwwBhqkAz/xytfxR2ajbIxMi7IKEyvzwP4lcMoaghb89ITA7aHeD
-dtlfuS6I+eXK/CfCr0jqhU2xuwpoZ9X3aUOEh0zef3qFK4agPdhohacTCTUi
-Ln+20g1l1fo1Mg9593Nufu5wxT9GF/GmGBuxDR2FdXTSovhTfDUvP/fwSGsW
-4ggeJqScNMMHdKwr8Et8ONpye97Cz84QvsWFV8rnEBRU6EbJeAFR3/7NVMmw
-xR6HwPCzFy1gu0dtKlRTUnHh+8//OPnTuGbBdrf/hR+bC4Yv6cE7IeTc5QdB
-bAsHGCH8ZALXo5wq+LEzFfgoFt3mx8UuduRYNtNhrOIZn9T4N3T84rKld2Rn
-2gofr0EK0vX50Nh2OODyTRiU3MVfQxheWqloBvxm0WFUu86i87Mi00okKeKH
-C3XBqvAOfy4SFjOe2PdlUNQEFB8SKQf8Cp7bwoQ6FB5I3BXZWuPFBhn27bnc
-F+DTO6qX2IuWdVXl7+nrFddmX9vSOQnzj0uPSz7xb4Mzlhb4Kr/t3sILu0EZ
-mPfwtPS7mfc7lrwlMEDBfvqAVYf3vCsw9uQ1eIhHLdORFy3zswnqmvEH65rD
-j3C3Bq/0f2jiUYvg9+FBkX9vAsXqVfgWnRdSNUTk2KYQVOyHyWw3MkMMvHWh
-s5uQzVzAe1NAT978uql9WlrIBMfzVPs/zy75LJ2PNAY2QetlN5tZSgULC9O8
-8MoKa4gbNlj/o+KNFbk4V/bbKdKbPSmYLj4hKXdmYXmF0ysHOTNaVJBNoQ+t
-ilQ93fBNeVET1FbdneMt9Vhbdpv36YPyovzYZcOZbPKvRQdV2Jm0EPmKTsbk
-fwvIPd98BfWekriXeGMlI/Ifh1eJx3rpcf+O07+9EPCU
-"], {{0, 38.4}, {38.4, 0}}, {0, 255},
-ColorFunction->RGBColor,
-ImageResolution->{120., 120.}],
-BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
-Selectable->False],
-DefaultBaseStyle->"ImageGraphics",
-ImageSize->Automatic,
-ImageSizeRaw->{38.4, 38.4},
-PlotRange->{{0, 38.4}, {0, 38.4}}]\);
+(* Images *)
+img1 = ;
+img2 = ;
+img3 = ;
+imgList = {img1, img2, img3};
 
-(* Color Data *)
-imgRGBBase = ImageData[img];
+(* Functions *)
+createLayer[mat_] :=
+  Module[
+   {n, rgbdata},
+   n = Dimensions[mat][[1]];
+   rgbdata = Table[0.0, {n/2}, {n/2}, {3}];
+   Table[Table[Table[
+      rgbdata[[(i/2) + 0.5]][[(j/2) + 0.5]][[k]] =
+       	(mat[[i]][[j]][[k]]
+          + mat[[i + 1]][[j]][[k]]
+          + mat[[i]][[j + 1]][[k]]
+          + mat[[i + 1]][[j + 1]][[k]])/4,
+      {k, 1, 3}], {j, 1, n, 2}], {i, 1, n, 2}];
+   Return[rgbdata]];
 
-imgRGBIter1 = Table[0.0, {32}, {32}, {3}];
-Table[Table[Table[imgRGBIter1[[(i/2) + 0.5]][[(j/2) + 0.5]][[k]] =
-     	((imgRGBBase[[i]][[j]][[k]]
-         + imgRGBBase[[i + 1]][[j]][[k]]
-         + imgRGBBase[[i]][[j + 1]][[k]]
-         + imgRGBBase[[i + 1]][[j + 1]][[k]])/4),
-    {k, 1, 3}], {j, 1, 64, 2}], {i, 1, 64, 2}];
+drawLayer[mat_] :=
+  Module[
+   {n, imgdata},
+   n = Dimensions[mat][[1]];
+   imgdata = Table[Table[
+      {RGBColor[Table[mat[[i]][[j]][[k]], {k, 1, 3}]],
+       Disk[{j*(64/n) - (0.5*(64/n)), (64 + (64/n)) - 
+          i*(64/n) - (0.5*(64/n))}, 0.5*(64/n)]},
+      {j, 1, n}], {i, 1, n}];
+   Return[imgdata]];
 
-imgRGBIter2 = Table[0.0, {16}, {16}, {3}];
-Table[Table[Table[imgRGBIter2[[(i/2) + 0.5]][[(j/2) + 0.5]][[k]] =
-     	((imgRGBIter1[[i]][[j]][[k]]
-         + imgRGBIter1[[i + 1]][[j]][[k]]
-         + imgRGBIter1[[i]][[j + 1]][[k]]
-         + imgRGBIter1[[i + 1]][[j + 1]][[k]])/4),
-    {k, 1, 3}], {j, 1, 32, 2}], {i, 1, 32, 2}];
+(* Image Data *)
+layerBase = ImageData[RandomChoice[imgList]];
+layer1 = createLayer[layerBase];
+layer2 = createLayer[layer1];
+layer3 = createLayer[layer2];
+layer4 = createLayer[layer3];
+layer5 = createLayer[layer4];
+layer6 = createLayer[layer5];
 
-imgRGBIter3 = Table[0.0, {8}, {8}, {3}];
-Table[Table[Table[imgRGBIter3[[(i/2) + 0.5]][[(j/2) + 0.5]][[k]] =
-     	((imgRGBIter2[[i]][[j]][[k]]
-         + imgRGBIter2[[i + 1]][[j]][[k]]
-         + imgRGBIter2[[i]][[j + 1]][[k]]
-         + imgRGBIter2[[i + 1]][[j + 1]][[k]])/4),
-    {k, 1, 3}], {j, 1, 16, 2}], {i, 1, 16, 2}];
-
-(* Pixel Data *)
-imgPDBase = 
-  Table[
-   Table[
-    {RGBColor[Table[imgRGBBase[[i]][[j]][[k]], {k, 1, 3}]], 
-     Disk[{j - 0.5, 65 - i - 0.5}, 0.5]},
-    {j, 1, 64}],
-   {i, 1, 64}];
-
-imgPDIter1 = 
-  Table[
-   Table[
-    {RGBColor[Table[imgRGBIter1[[i]][[j]][[k]], {k, 1, 3}]], 
-     Disk[{j - 0.5, 33 - i - 0.5}, 0.5]},
-    {j, 1, 32}],
-   {i, 1, 32}];
-
-imgPDIter2 = 
-  Table[
-   Table[
-    {RGBColor[Table[imgRGBIter2[[i]][[j]][[k]], {k, 1, 3}]], 
-     Disk[{j - 0.5, 17 - i - 0.5}, 0.5]},
-    {j, 1, 16}],
-   {i, 1, 16}];
-
-imgPDIter3 = 
-  Table[
-   Table[
-    {RGBColor[Table[imgRGBIter3[[i]][[j]][[k]], {k, 1, 3}]], 
-     Disk[{j - 0.5, 9 - i - 0.5}, 0.5]},
-    {j, 1, 8}],
-   {i, 1, 8}];
-
-(* Draw graphics *)
-Graphics[
- {
-  imgPDBase
-  },
- Axes -> True, PlotRange -> {{0, 64}, {0, 64}}, ImageSize -> 512]
-
-Graphics[
- {
-  imgPDIter1
-  },
- Axes -> True, PlotRange -> {{0, 32}, {0, 32}}, ImageSize -> 512]
-
-Graphics[
- {
-  imgPDIter2
-  },
- Axes -> True, PlotRange -> {{0, 16}, {0, 16}}, ImageSize -> 512]
-
-Graphics[
- {
-  imgPDIter3
-  },
- Axes -> True, PlotRange -> {{0, 8}, {0, 8}}, ImageSize -> 512]
+(* Draw image *)
+Manipulate[
+ Graphics[
+  {
+   drawLayer[layerBase],
+   drawLayer[layer1],
+   drawLayer[layer2],
+   drawLayer[layer3],
+   drawLayer[layer4],
+   },
+  Axes -> True, PlotRange -> {{0, 64}, {0, 64}}, ImageSize -> 512],
+ {Mouse, 0, 64, Slider2D}]
